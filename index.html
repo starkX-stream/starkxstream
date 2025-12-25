@@ -31,164 +31,118 @@
         }
 
         .container {
-            width: 88%;
-            max-width: 420px;
-            padding: 40px 20px;
+            width: 90%;
+            max-width: 400px; /* جمع‌وجورتر */
+            padding: 50px 20px;
             text-align: center;
-            z-index: 1;
         }
 
-        /* لوگو با افکت نئون سفید یخی */
+        /* اصلاح لوگو: شارپ‌تر و واضح‌تر */
         .brand-title {
             font-family: 'BatmanForever', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0;
             line-height: 1.1;
             letter-spacing: 2px;
             color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+            /* حذف اون سایه زیاد که تار میکرد، جایگزین با سایه تیز */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+            filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
         }
 
         .tagline {
             font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 300;
-            color: #b0b0b0;
-            margin-top: 15px;
-            margin-bottom: 40px;
+            color: #ccc;
+            margin-top: 10px;
+            margin-bottom: 30px;
             dir: rtl;
-            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .separator {
-            color: #555;
-            margin: 0 8px;
+            color: #666;
+            margin: 0 5px;
         }
 
-        /* --- استایل لیکوئید گلس (Liquid Glass) --- */
-        /* این استایل جدید دکمه‌هاست که حس شیشه مایع میده */
+        /* --- استایل دکمه‌های تک (Tech Style) --- */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             
-            /* گرادینت شفاف برای حس حجم */
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.15) 0%, 
-                rgba(255, 255, 255, 0.01) 100%
-            );
-            backdrop-filter: blur(20px); /* تاری زیاد */
-            -webkit-backdrop-filter: blur(20px);
+            /* زمینه تیره‌تر برای خوانایی بهتر */
+            background: rgba(20, 20, 20, 0.6); 
+            backdrop-filter: blur(10px);
             
-            /* بردرهای هایلایت شده برای حس شیشه‌ای */
-            border-top: 1px solid rgba(255, 255, 255, 0.4);
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            
-            /* سایه درونی برای عمق (In-set) */
-            box-shadow: 
-                inset 0 0 20px rgba(255, 255, 255, 0.02),
-                0 10px 20px rgba(0, 0, 0, 0.5);
+            /* بوردر تیز و نئونی */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 2px solid rgba(255, 255, 255, 0.4); /* سمت چپ روشن‌تر */
             
             color: white;
             text-decoration: none;
-            padding: 16px 20px;
-            margin-bottom: 16px;
-            border-radius: 20px; /* خیلی گرد برای حس مایع */
+            padding: 14px 20px; /* ارتفاع کمتر و شیک‌تر */
+            margin-bottom: 12px;
             
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            font-weight: 600;
-            font-size: 1.1rem;
-            overflow: hidden;
+            /* گوشه‌ها: فقط کمی گرد (نه کپسولی) */
+            border-radius: 8px; 
+            
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
 
-        /* افکت نوری که روی دکمه حرکت میکنه (Shine Effect) */
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.2), 
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.25) 0%, 
-                rgba(255, 255, 255, 0.05) 100%
-            );
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-            border-color: rgba(255, 255, 255, 0.6);
+        /* افکت هاور: پر شدن دکمه */
+        .btn:not(.donate-btn):hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateX(5px); /* حرکت به سمت راست */
+            box-shadow: -5px 0 15px rgba(255, 255, 255, 0.1);
         }
 
         .btn i {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             position: absolute;
             left: 20px;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+            color: #aaa;
+            transition: color 0.3s;
         }
         
-        .btn span {
-            text-align: center;
-            width: 100%;
+        .btn:hover i {
+            color: #fff;
         }
         
-        /* --- دکمه دونیت: نقره‌ای کروم (Silver Chrome) --- */
+        /* --- دکمه دونیت: پلاتینیوم (فلز تیره و سنگین) --- */
         .donate-btn {
-            background: linear-gradient(
-                45deg, 
-                #777 0%, 
-                #ccc 25%, 
-                #fff 50%, 
-                #ccc 75%, 
-                #777 100%
-            );
-            background-size: 200% auto;
+            /* گرادینت متالیک واقعی */
+            background: linear-gradient(180deg, #f0f0f0 0%, #a0a0a0 49%, #505050 51%, #a0a0a0 100%);
+            border: 1px solid #fff;
             color: #000 !important;
-            font-weight: 900;
-            border: none;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            animation: shine 4s linear infinite; /* انیمیشن مداوم براق بودن */
-        }
-        
-        @keyframes shine {
-            to {
-                background-position: 200% center;
-            }
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            border-radius: 8px; /* هماهنگ با بقیه */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
         
         .donate-btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.6);
-            color: #000;
+            filter: brightness(1.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
         }
         
         .donate-btn i {
             color: #000 !important;
-            filter: none;
         }
 
         footer {
             margin-top: 40px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            color: #555;
         }
     </style>
 </head>
