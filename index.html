@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="ltr"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARKX Links</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* تعریف فونت بتمن (فقط برای تیتر) */
+        @font-face {
+            font-family: 'BatmanForever';
+            src: url('batman.ttf') format('truetype');
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --hover-color: #000000;
+            --bg-overlay: rgba(0, 0, 0, 0.75); /* تیرگی روی عکس برای خوانایی بهتر */
+        }
+
+        body {
+            /* تنظیم عکس پس‌زمینه */
+            background-image: url('bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #050505;
+            
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif; /* فونت پیش‌فرض کل صفحه */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px; /* عرض استاندارد باکس */
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* استایل تیتر اصلی (فونت بتمن) */
+        .brand-title {
+            font-family: 'BatmanForever', sans-serif;
+            font-size: 3.8rem;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: transparent;
+            -webkit-text-stroke: 1.5px white; /* حالت توخالی (Outline) */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+        }
+
+        /* استایل توضیحات فارسی (فونت وزیر) */
+        .tagline {
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: #d1d1d1; /* کمی طوسی برای کنتراست با سفید */
+            margin-top: 15px;
+            margin-bottom: 50px;
+            letter-spacing: 0;
+            dir: rtl; /* راست‌چین کردن متن فارسی */
+        }
+
+        /* جداکننده عمودی بین کلمات فارسی */
+        .separator {
+            color: #666;
+            margin: 0 8px;
+        }
+
+        /* استایل دکمه‌ها (تمیز و خوانا) */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* آیکون و متن در دو طرف */
+            
+            background: rgba(0, 0, 0, 0.6); /* زمینه شیشه‌ای تیره */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* حاشیه ظریف */
+            color: white;
+            
+            text-decoration: none;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+            border-radius: 8px; /* گوشه‌های کمی گرد */
+            
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px); /* افکت مات شدن پشت دکمه */
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn i {
+            font-size: 1.4rem;
+            width: 30px;
+            text-align: center;
+        }
+        
+        /* دکمه دونیت (کمی متمایز) */
+        .donate-btn {
+            border: 2px solid white; /* حاشیه ضخیم‌تر */
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px; /* فاصله بیشتر */
+        }
+        
+        .donate-btn:hover {
+            background: white;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #666;
+            direction: ltr;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1 class="brand-title">STARKX</h1>
+        
+        <p class="tagline">
+            تولیدکننده محتوا <span class="separator">|</span> استریمر <span class="separator">|</span> گیمر
+        </p>
+
+        <a href="https://reymit.ir/starkxstream" class="btn donate-btn" target="_blank">
+            <i class="fas fa-heart"></i>
+            <span>حمایت مالی (Donate)</span>
+        </a>
+
+        <a href="https://kick.com/starkxstream" class="btn" target="_blank">
+            <i class="fas fa-bolt"></i>
+            <span>KICK</span>
+        </a>
+
+        <a href="https://twitch.tv/starkxstream" class="btn" target="_blank">
+            <i class="fab fa-twitch"></i>
+            <span>TWITCH</span>
+        </a>
+
+        <a href="https://youtube.com/@starkxstream" class="btn" target="_blank">
+            <i class="fab fa-youtube"></i>
+            <span>YOUTUBE</span>
+        </a>
+
+        <a href="https://instagram.com/starkxstream" class="btn" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>INSTAGRAM</span>
+        </a>
+
+        <a href="https://x.com/starkxstream" class="btn" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+            <span>X (TWITTER)</span>
+        </a>
+
+        <a href="https://t.me/starkxstream" class="btn" target="_blank">
+            <i class="fab fa-telegram"></i>
+            <span>TELEGRAM</span>
+        </a>
+
+        <a href="https://discord.gg/yourinvite" class="btn" target="_blank">
+            <i class="fab fa-discord"></i>
+            <span>DISCORD</span>
+        </a>
+
+        <footer>
+            © 2024 STARKX. All Rights Reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
