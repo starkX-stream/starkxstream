@@ -6,11 +6,9 @@
     <title>STARKX Links</title>
     
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        /* تعریف فونت بتمن (فقط برای تیتر) */
         @font-face {
             font-family: 'BatmanForever';
             src: url('batman.ttf') format('truetype');
@@ -18,22 +16,21 @@
 
         :root {
             --primary-color: #ffffff;
-            --hover-color: #000000;
-            --bg-overlay: rgba(0, 0, 0, 0.75); /* تیرگی روی عکس برای خوانایی بهتر */
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-hover: rgba(255, 255, 255, 0.2);
         }
 
         body {
-            /* تنظیم عکس پس‌زمینه */
             background-image: url('bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-color: #050505;
-            
             color: var(--primary-color);
             margin: 0;
             padding: 0;
-            font-family: 'Vazirmatn', sans-serif; /* فونت پیش‌فرض کل صفحه */
+            font-family: 'Vazirmatn', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -41,95 +38,107 @@
         }
 
         .container {
-            width: 100%;
-            max-width: 500px; /* عرض استاندارد باکس */
-            padding: 60px 20px;
+            width: 90%;
+            max-width: 450px; /* عرض بهینه‌تر برای موبایل */
+            padding: 40px 20px;
             text-align: center;
         }
 
-        /* استایل تیتر اصلی (فونت بتمن) */
+        /* لوگو (تایتل) */
         .brand-title {
             font-family: 'BatmanForever', sans-serif;
-            font-size: 3.8rem;
+            font-size: 3rem; /* کوچکتر شد تا در موبایل جاگیر نباشد */
             margin: 0;
             line-height: 1.1;
             letter-spacing: 2px;
             color: transparent;
-            -webkit-text-stroke: 1.5px white; /* حالت توخالی (Outline) */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+            -webkit-text-stroke: 1.5px white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
-        /* استایل توضیحات فارسی (فونت وزیر) */
         .tagline {
             font-family: 'Vazirmatn', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 300;
-            color: #d1d1d1; /* کمی طوسی برای کنتراست با سفید */
-            margin-top: 15px;
-            margin-bottom: 50px;
-            letter-spacing: 0;
-            dir: rtl; /* راست‌چین کردن متن فارسی */
+            color: #d1d1d1;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            dir: rtl;
         }
 
-        /* جداکننده عمودی بین کلمات فارسی */
         .separator {
             color: #666;
             margin: 0 8px;
         }
 
-        /* استایل دکمه‌ها (تمیز و خوانا) */
+        /* استایل جدید دکمه‌ها */
         .btn {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* آیکون و متن در دو طرف */
+            justify-content: center; /* وسط‌چین کردن محتوا */
+            position: relative;
             
-            background: rgba(0, 0, 0, 0.6); /* زمینه شیشه‌ای تیره */
-            border: 1px solid rgba(255, 255, 255, 0.3); /* حاشیه ظریف */
+            background: var(--glass-bg); /* شیشه‌ای */
+            backdrop-filter: blur(10px); /* مات کردن پس‌زمینه */
+            border: 1px solid var(--glass-border);
             color: white;
             
             text-decoration: none;
-            padding: 16px 24px;
-            margin-bottom: 12px;
-            border-radius: 8px; /* گوشه‌های کمی گرد */
+            padding: 14px 20px;
+            margin-bottom: 15px;
+            border-radius: 14px; /* گوشه‌های گردتر و مدرن‌تر */
             
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             font-weight: 500;
             font-size: 1.1rem;
-            backdrop-filter: blur(5px); /* افکت مات شدن پشت دکمه */
         }
 
         .btn:hover {
-            background: white;
-            color: black;
-            border-color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+            background: var(--glass-hover);
+            transform: translateY(-4px); /* حرکت نرم به بالا */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
+        /* آیکون‌ها */
         .btn i {
-            font-size: 1.4rem;
-            width: 30px;
-            text-align: center;
+            font-size: 1.3rem;
+            position: absolute;
+            left: 20px; /* آیکون همیشه سمت چپ ثابت بماند */
         }
         
-        /* دکمه دونیت (کمی متمایز) */
+        .btn span {
+            text-align: center;
+            width: 100%; /* برای اطمینان از وسط‌چین بودن متن */
+        }
+        
+        /* دکمه دونیت ویژه */
         .donate-btn {
-            border: 2px solid white; /* حاشیه ضخیم‌تر */
-            font-weight: 700;
-            background: rgba(255, 255, 255, 0.05);
-            margin-bottom: 30px; /* فاصله بیشتر */
+            background: linear-gradient(135deg, #FFD700, #FF8C00); /* گرادینت طلایی */
+            border: none;
+            color: black;
+            font-weight: 800;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
         
         .donate-btn:hover {
-            background: white;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, #FFED4B, #FFA500);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            transform: translateY(-4px) scale(1.02);
+            color: black;
+        }
+        
+        /* اصلاح آیکون دونیت برای خوانایی روی رنگ روشن */
+        .donate-btn i {
+            color: #000; 
         }
 
         footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #666;
-            direction: ltr;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -189,5 +198,4 @@
     </div>
 
 </body>
-
 </html>
