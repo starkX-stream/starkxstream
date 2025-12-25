@@ -15,12 +15,12 @@
         }
 
         body {
-            /* بازگشت بک‌گراند اصلی خودت */
+            /* حفظ بک‌گراند اصلی */
             background-image: url('bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000; /* رنگ پشتیبان */
+            background-color: #000;
             
             color: #ffffff;
             margin: 0;
@@ -33,20 +33,20 @@
         }
 
         .container {
-            width: 90%; /* عرض درصدی برای ریسپانسیو بودن */
-            max-width: 450px; /* جلوگیری از پهن شدن بیش از حد در دسکتاپ */
+            width: 90%;
+            max-width: 450px;
             padding: 50px 20px;
             text-align: center;
         }
 
-        /* لوگو (حفظ فونت و استایل اصلی) */
+        /* لوگو و تایتل (بدون تغییر) */
         .brand-title {
             font-family: 'BatmanForever', sans-serif;
-            font-size: 2.8rem; /* کمی کوچکتر برای موبایل که نشکنه */
+            font-size: 2.8rem;
             margin: 0;
             line-height: 1.2;
             color: transparent;
-            -webkit-text-stroke: 1.5px white; /* حفظ استایل توخالی که دوست داشتی */
+            -webkit-text-stroke: 1.5px white;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
@@ -61,50 +61,127 @@
 
         .separator { margin: 0 5px; color: #666; }
 
-        /* اصلاح دکمه‌ها برای ریسپانسیو بودن */
+        /* =========================================
+           استایل جدید دکمه‌ها (Apple Liquid Glass)
+        ========================================= */
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center; /* وسط‌چین کردن محتوا */
+            justify-content: center;
             position: relative;
             
-            /* زمینه شیشه‌ای دودی (برای خوانایی روی بک‌گراند شلوغ) */
-            background: rgba(0, 0, 0, 0.6); 
-            backdrop-filter: blur(5px);
+            /* راز لیکوئید گلس: ترکیب گرادینت‌های شفاف و سایه‌های درونی */
+            background: linear-gradient(
+                135deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.05) 100%
+            );
+            backdrop-filter: blur(15px); /* تاری شدید شبیه شیشه */
+            -webkit-backdrop-filter: blur(15px);
             
-            /* بوردر خیلی ظریف */
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* بوردرهای چندلایه برای حس برجستگی شیشه‌ای */
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            
+            /* سایه برای عمق دادن */
+            box-shadow: 
+                inset 0 0 20px rgba(255, 255, 255, 0.05), /* درخشش درونی */
+                0 10px 20px rgba(0, 0, 0, 0.3); /* سایه بیرونی */
             
             color: #fff;
             text-decoration: none;
-            padding: 15px 20px; /* ارتفاع مناسب انگشت */
-            margin-bottom: 12px;
-            border-radius: 10px; /* گوشه‌های استاندارد */
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            border-radius: 18px; /* گوشه‌های خیلی گرد (Apple Style) */
             
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.1rem;
-            width: 100%; /* دکمه کل عرض کانتینر رو بگیره */
-            box-sizing: border-box; /* جلوگیری از بیرون زدگی پدینگ */
+            width: 100%;
+            box-sizing: border-box;
+            
+            /* انیمیشن نرم برای واکنش */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden; /* برای افکت‌های نوری */
+        }
+
+        /* واکنش هاور برای دکمه‌های شیشه‌ای */
+        .btn:not(.donate-btn):hover {
+            transform: translateY(-5px) scale(1.02); /* بالا اومدن و بزرگ شدن */
+            background: linear-gradient(
+                135deg, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.1) 100%
+            ); /* روشن‌تر شدن شیشه */
+            box-shadow: 
+                inset 0 0 30px rgba(255, 255, 255, 0.2),
+                0 15px 30px rgba(0, 0, 0, 0.5); /* سایه عمیق‌تر */
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* افکت کلیک (Active) */
+        .btn:active {
+            transform: translateY(-2px) scale(0.98); /* کمی فشرده شدن */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.4);
         }
 
         /* آیکون‌ها */
         .btn i {
             font-size: 1.3rem;
             position: absolute;
-            left: 20px; /* آیکون همیشه سمت چپ */
+            left: 20px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); /* درخشش ملایم دور آیکون */
         }
 
-        /* دکمه دونیت (متمایز ولی نه زشت) */
+        /* =========================================
+           استایل دکمه دونیت (Beautiful Steel)
+        ========================================= */
         .donate-btn {
-            background: #ffffff; /* سفید ساده (بیشترین کنتراست با مشکی) */
-            color: #000 !important;
-            border: none;
-            font-weight: 700;
-            margin-bottom: 25px;
+            /* گرادینت متالیک استیل (نقره‌ای/خاکستری) */
+            background: linear-gradient(
+                to bottom,
+                #e6e6e6 0%,  /* خیلی روشن بالا */
+                #c0c0c0 50%,  /* تیره‌تر وسط */
+                #e6e6e6 100%  /* روشن پایین */
+            );
+            /* بافت برس خورده (Brushed Metal) با استفاده از سایه */
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.8), /* هایلایت لبه بالا */
+                inset 0 -1px 0 rgba(0,0,0,0.2), /* سایه لبه پایین */
+                0 5px 15px rgba(0, 0, 0, 0.4); /* سایه بیرونی سنگین */
+            
+            border: 1px solid #a0a0a0; /* بوردر فلزی */
+            color: #222 !important; /* متن تیره برای خوانایی روی استیل */
+            text-shadow: 0 1px 0 rgba(255,255,255,0.5); /* فرورفتگی متن */
+            font-weight: 800;
+            margin-bottom: 30px;
         }
         
+        /* واکنش هاور برای دکمه استیل */
+        .donate-btn:hover {
+            /* تغییر زاویه نور */
+            background: linear-gradient(
+                to bottom,
+                #ffffff 0%,
+                #d0d0d0 50%,
+                #ffffff 100%
+            );
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,1),
+                0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: #fff;
+        }
+        
+        .donate-btn:active {
+            transform: translateY(0) scale(0.98);
+            background: linear-gradient(to bottom, #c0c0c0, #e6e6e6); /* تیره‌تر شدن موقع کلیک */
+        }
+
         .donate-btn i {
-            color: #000 !important;
+            color: #222 !important;
+            filter: none;
         }
 
         footer {
