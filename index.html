@@ -15,11 +15,13 @@
         }
 
         body {
+            /* بازگشت بک‌گراند اصلی خودت */
             background-image: url('bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000000;
+            background-color: #000; /* رنگ پشتیبان */
+            
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -31,108 +33,74 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 400px; /* جمع‌وجورتر */
+            width: 90%; /* عرض درصدی برای ریسپانسیو بودن */
+            max-width: 450px; /* جلوگیری از پهن شدن بیش از حد در دسکتاپ */
             padding: 50px 20px;
             text-align: center;
         }
 
-        /* اصلاح لوگو: شارپ‌تر و واضح‌تر */
+        /* لوگو (حفظ فونت و استایل اصلی) */
         .brand-title {
             font-family: 'BatmanForever', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.8rem; /* کمی کوچکتر برای موبایل که نشکنه */
             margin: 0;
-            line-height: 1.1;
-            letter-spacing: 2px;
-            color: #fff;
-            /* حذف اون سایه زیاد که تار میکرد، جایگزین با سایه تیز */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
-            filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+            line-height: 1.2;
+            color: transparent;
+            -webkit-text-stroke: 1.5px white; /* حفظ استایل توخالی که دوست داشتی */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .tagline {
             font-family: 'Vazirmatn', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 300;
+            font-size: 0.9rem;
             color: #ccc;
-            margin-top: 10px;
-            margin-bottom: 30px;
+            margin-top: 15px;
+            margin-bottom: 40px;
             dir: rtl;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .separator {
-            color: #666;
-            margin: 0 5px;
-        }
+        .separator { margin: 0 5px; color: #666; }
 
-        /* --- استایل دکمه‌های تک (Tech Style) --- */
+        /* اصلاح دکمه‌ها برای ریسپانسیو بودن */
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* وسط‌چین کردن محتوا */
             position: relative;
             
-            /* زمینه تیره‌تر برای خوانایی بهتر */
-            background: rgba(20, 20, 20, 0.6); 
-            backdrop-filter: blur(10px);
+            /* زمینه شیشه‌ای دودی (برای خوانایی روی بک‌گراند شلوغ) */
+            background: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(5px);
             
-            /* بوردر تیز و نئونی */
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-left: 2px solid rgba(255, 255, 255, 0.4); /* سمت چپ روشن‌تر */
+            /* بوردر خیلی ظریف */
+            border: 1px solid rgba(255, 255, 255, 0.3);
             
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px; /* ارتفاع کمتر و شیک‌تر */
-            margin-bottom: 12px;
-            
-            /* گوشه‌ها: فقط کمی گرد (نه کپسولی) */
-            border-radius: 8px; 
-            
-            transition: all 0.2s ease;
-            font-weight: 500;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* افکت هاور: پر شدن دکمه */
-        .btn:not(.donate-btn):hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: translateX(5px); /* حرکت به سمت راست */
-            box-shadow: -5px 0 15px rgba(255, 255, 255, 0.1);
-        }
-
-        .btn i {
-            font-size: 1.2rem;
-            position: absolute;
-            left: 20px;
-            color: #aaa;
-            transition: color 0.3s;
-        }
-        
-        .btn:hover i {
             color: #fff;
-        }
-        
-        /* --- دکمه دونیت: پلاتینیوم (فلز تیره و سنگین) --- */
-        .donate-btn {
-            /* گرادینت متالیک واقعی */
-            background: linear-gradient(180deg, #f0f0f0 0%, #a0a0a0 49%, #505050 51%, #a0a0a0 100%);
-            border: 1px solid #fff;
-            color: #000 !important;
-            font-weight: 800;
+            text-decoration: none;
+            padding: 15px 20px; /* ارتفاع مناسب انگشت */
+            margin-bottom: 12px;
+            border-radius: 10px; /* گوشه‌های استاندارد */
+            
+            font-weight: 500;
             font-size: 1.1rem;
-            margin-bottom: 25px;
-            border-radius: 8px; /* هماهنگ با بقیه */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            width: 100%; /* دکمه کل عرض کانتینر رو بگیره */
+            box-sizing: border-box; /* جلوگیری از بیرون زدگی پدینگ */
         }
-        
-        .donate-btn:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-            transform: scale(1.02);
+
+        /* آیکون‌ها */
+        .btn i {
+            font-size: 1.3rem;
+            position: absolute;
+            left: 20px; /* آیکون همیشه سمت چپ */
+        }
+
+        /* دکمه دونیت (متمایز ولی نه زشت) */
+        .donate-btn {
+            background: #ffffff; /* سفید ساده (بیشترین کنتراست با مشکی) */
+            color: #000 !important;
+            border: none;
+            font-weight: 700;
+            margin-bottom: 25px;
         }
         
         .donate-btn i {
@@ -141,8 +109,8 @@
 
         footer {
             margin-top: 40px;
-            font-size: 0.7rem;
-            color: #555;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
