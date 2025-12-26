@@ -15,12 +15,12 @@
         }
 
         body {
-            /* حفظ بک‌گراند اصلی */
+            /* همان پس‌زمینه اصلی خودت */
             background-image: url('bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000;
+            background-color: #050505;
             
             color: #ffffff;
             margin: 0;
@@ -35,19 +35,19 @@
         .container {
             width: 90%;
             max-width: 450px;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
-        /* لوگو و تایتل (بدون تغییر) */
+        /* لوگو: دقیقاً مثل عکس (توخالی و سفید) */
         .brand-title {
             font-family: 'BatmanForever', sans-serif;
             font-size: 2.8rem;
             margin: 0;
             line-height: 1.2;
-            color: transparent;
-            -webkit-text-stroke: 1.5px white;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            color: transparent; /* داخل متن خالی */
+            -webkit-text-stroke: 1.5px white; /* خط دور سفید */
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* سایه مشکی برای خوانایی روی پس‌زمینه */
         }
 
         .tagline {
@@ -55,139 +55,87 @@
             font-size: 0.9rem;
             color: #ccc;
             margin-top: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             dir: rtl;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        .separator { margin: 0 5px; color: #666; }
+        .separator { margin: 0 6px; color: #888; }
 
         /* =========================================
-           استایل جدید دکمه‌ها (Apple Liquid Glass)
+           استایل دکمه‌ها (Dark Wireframe Style)
+           طبق عکس ارسالی شما
         ========================================= */
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* متن وسط‌چین (برای تمیزی در موبایل) */
             position: relative;
             
-            /* راز لیکوئید گلس: ترکیب گرادینت‌های شفاف و سایه‌های درونی */
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.2) 0%, 
-                rgba(255, 255, 255, 0.05) 100%
-            );
-            backdrop-filter: blur(15px); /* تاری شدید شبیه شیشه */
-            -webkit-backdrop-filter: blur(15px);
+            /* پس‌زمینه: مشکی با شفافیت متوسط (طبق عکس) */
+            background: rgba(0, 0, 0, 0.65); 
             
-            /* بوردرهای چندلایه برای حس برجستگی شیشه‌ای */
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            border-left: 1px solid rgba(255, 255, 255, 0.3);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            
-            /* سایه برای عمق دادن */
-            box-shadow: 
-                inset 0 0 20px rgba(255, 255, 255, 0.05), /* درخشش درونی */
-                0 10px 20px rgba(0, 0, 0, 0.3); /* سایه بیرونی */
+            /* بوردر: سفید نازک و شارپ */
+            border: 1px solid rgba(255, 255, 255, 0.35);
             
             color: #fff;
             text-decoration: none;
             padding: 16px 20px;
-            margin-bottom: 15px;
-            border-radius: 18px; /* گوشه‌های خیلی گرد (Apple Style) */
+            margin-bottom: 12px;
             
-            font-weight: 600;
-            font-size: 1.1rem;
+            /* گوشه‌ها: گردی کم (طبق عکس) */
+            border-radius: 8px; 
+            
+            font-weight: 500;
+            font-size: 1.05rem;
             width: 100%;
             box-sizing: border-box;
             
-            /* انیمیشن نرم برای واکنش */
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow: hidden; /* برای افکت‌های نوری */
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px); /* کمی تاری برای خوانایی */
         }
 
-        /* واکنش هاور برای دکمه‌های شیشه‌ای */
-        .btn:not(.donate-btn):hover {
-            transform: translateY(-5px) scale(1.02); /* بالا اومدن و بزرگ شدن */
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.3) 0%, 
-                rgba(255, 255, 255, 0.1) 100%
-            ); /* روشن‌تر شدن شیشه */
-            box-shadow: 
-                inset 0 0 30px rgba(255, 255, 255, 0.2),
-                0 15px 30px rgba(0, 0, 0, 0.5); /* سایه عمیق‌تر */
-            border-color: rgba(255, 255, 255, 0.6);
+        /* واکنش هاور (ساده و شیک) */
+        .btn:hover {
+            background: rgba(0, 0, 0, 0.85); /* تیره‌تر شدن */
+            border-color: #ffffff; /* سفید شدن کامل بوردر */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        /* افکت کلیک (Active) */
-        .btn:active {
-            transform: translateY(-2px) scale(0.98); /* کمی فشرده شدن */
-            box-shadow: 0 5px 10px rgba(0,0,0,0.4);
-        }
-
-        /* آیکون‌ها */
+        /* آیکون‌ها سمت چپ فیکس */
         .btn i {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             position: absolute;
             left: 20px;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); /* درخشش ملایم دور آیکون */
+            color: #ffffff;
         }
 
         /* =========================================
-           استایل دکمه دونیت (Beautiful Steel)
+           دکمه دونیت (هماهنگ با سبک عکس)
         ========================================= */
         .donate-btn {
-            /* گرادینت متالیک استیل (نقره‌ای/خاکستری) */
-            background: linear-gradient(
-                to bottom,
-                #e6e6e6 0%,  /* خیلی روشن بالا */
-                #c0c0c0 50%,  /* تیره‌تر وسط */
-                #e6e6e6 100%  /* روشن پایین */
-            );
-            /* بافت برس خورده (Brushed Metal) با استفاده از سایه */
-            box-shadow: 
-                inset 0 1px 0 rgba(255,255,255,0.8), /* هایلایت لبه بالا */
-                inset 0 -1px 0 rgba(0,0,0,0.2), /* سایه لبه پایین */
-                0 5px 15px rgba(0, 0, 0, 0.4); /* سایه بیرونی سنگین */
-            
-            border: 1px solid #a0a0a0; /* بوردر فلزی */
-            color: #222 !important; /* متن تیره برای خوانایی روی استیل */
-            text-shadow: 0 1px 0 rgba(255,255,255,0.5); /* فرورفتگی متن */
-            font-weight: 800;
-            margin-bottom: 30px;
+            /* در عکس ارسالی، دکمه دونیت شبیه بقیه است اما حاشیه مشخص‌تری دارد */
+            background: rgba(255, 255, 255, 0.1); /* کمی روشن‌تر از بقیه */
+            border: 1.5px solid #ffffff; /* بوردر ضخیم‌تر و سفید کامل */
+            font-weight: 700;
+            margin-bottom: 30px; /* فاصله بیشتر */
         }
         
-        /* واکنش هاور برای دکمه استیل */
         .donate-btn:hover {
-            /* تغییر زاویه نور */
-            background: linear-gradient(
-                to bottom,
-                #ffffff 0%,
-                #d0d0d0 50%,
-                #ffffff 100%
-            );
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 
-                inset 0 1px 0 rgba(255,255,255,1),
-                0 10px 25px rgba(0, 0, 0, 0.5);
-            border-color: #fff;
+            background: #ffffff; /* در هاور سفید شود */
+            color: #000 !important; /* متن مشکی */
         }
         
-        .donate-btn:active {
-            transform: translateY(0) scale(0.98);
-            background: linear-gradient(to bottom, #c0c0c0, #e6e6e6); /* تیره‌تر شدن موقع کلیک */
-        }
-
-        .donate-btn i {
-            color: #222 !important;
-            filter: none;
+        .donate-btn:hover i {
+            color: #000 !important;
         }
 
         footer {
-            margin-top: 40px;
+            margin-top: 50px;
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
